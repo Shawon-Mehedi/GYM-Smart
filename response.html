@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalized Plan</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f3; /* Light gray background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height */
+            color: #333;
+        }
+
+        .response-container {
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Align text to the left */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #007BFF; /* Primary color */
+        }
+
+        #response {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.5; /* Improved line height for readability */
+            overflow: auto; /* Adds scrollbar if the content is too long */
+            white-space: pre-wrap; /* Preserves whitespace and line breaks */
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin: 15px 0 10px;
+            color: #333; /* Dark color for subheadings */
+        }
+
+        h3 {
+            font-size: 1.5em;
+            margin: 12px 0 8px;
+            color: #333; /* Dark color for sub-subheadings */
+        }
+
+        strong {
+            font-weight: bold;
+            color: #007BFF; /* Color for bold text */
+        }
+
+        em {
+            font-style: italic;
+            color: #555; /* Color for italic text */
+        }
+
+        .btn-dashboard {
+            margin-top: 30px;
+            padding: 12px 25px;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            font-size: 1.1em; /* Increased font size */
+            display: inline-block; /* Better layout */
+        }
+
+        .btn-dashboard:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em; /* Responsive font size */
+            }
+
+            .btn-dashboard {
+                font-size: 1em; /* Responsive font size */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="response-container">
+        <h1>Your Personalized Plan</h1>
+        <div id="response"></div>
+
+        <!-- Button to go to the dashboard -->
+        <a href="index.php" class="btn-dashboard">Go to Dashboard</a>
+    </div>
+
+    <script>
+        // Simple Markdown parser
+        function parseMarkdown(text) {
+            // Convert headers
+            text = text.replace(/^(#{1,6})\s*(.*)/gm, (match, hashes, title) => {
+                const level = hashes.length; // Get the level of heading
+                return `<h${level}>${title.trim()}</h${level}>`;
+            });
+
+            // Convert bold and italic
+            text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); // Bold
+            text = text.replace(/\*(.+?)\*/g, '<em>$1</em>'); // Italics
+
+            return text;
+        }
+
+        // Retrieve the response from localStorage
+        const responseText = localStorage.getItem('apiResponse');
+
+        // Parse and display the response
+        const responseDiv = document.getElementById('response');
+        const parse = parseMarkdown(responseText)
+        console.log("data= ",parse)
+        responseDiv.innerHTML = parse
+    </script>
+
+</body>
+</html>
+

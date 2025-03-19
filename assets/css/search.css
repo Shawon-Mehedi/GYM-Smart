@@ -1,0 +1,74 @@
+  /* General Styling for the Search Bar */
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  }
+
+  /* Styling the form */
+  .search-form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .search-form:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Styling the input field */
+  .search-form input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-form input[type="text"]::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+
+  .search-form input[type="text"]:focus {
+    background-color: #f0f0f0;
+  }
+
+  /* Styling the search button */
+  .search-form button {
+    background-color: #28a745;
+    border: none;
+    padding: 10px 18px;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-form button:hover {
+    background-color: #218838;
+  }
+
+  /* Search icon styling */
+  .search-form button i {
+    font-size: 20px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .search-form input[type="text"] {
+      font-size: 14px;
+    }
+
+    .search-form button {
+      padding: 10px 15px;
+    }
+  }
