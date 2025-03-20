@@ -19,5 +19,5 @@ Trainer evaluations help in continuous improvement and service quality.
 Secure login using password encryption. <br>
 Email verification & validation during registration. 
  
-Author - Mehedi Hasan Shawon
+Author - Mehedi Hasan Shawon <br>
 Email : shawonmehedi.c@gmail.com
